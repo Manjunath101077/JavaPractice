@@ -1,5 +1,6 @@
 package org.example.Coding;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class TwoPairGivenSum {
@@ -38,6 +39,21 @@ public class TwoPairGivenSum {
                 last=mid-1;
             }else if(arr[mid]>target){
                 first=mid+1;
+            }
+        }
+        return false;
+    }
+
+    public static boolean twoPairGivenSumUsingTwoPoint(int num,int[] arr){
+        Arrays.sort(arr);
+        int left=0;int right= arr.length-1;
+        while(left<=right){
+            if(arr[left]+arr[right]==num){
+                return true;
+            }else if(arr[left]+arr[right]<num){
+                    left++;
+            }else if(arr[left]+arr[right]>num){
+                right--;
             }
         }
         return false;
